@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
+import NewProjectModal from '../components/NewProjectModal';
 
 export default class MenuExampleInverted extends Component {
   state = { activeItem: 'Project List' }
@@ -20,7 +21,7 @@ export default class MenuExampleInverted extends Component {
           name='create new project'
           active={activeItem === 'create new project'}
           onClick={this.handleItemClick}
-        />
+        ><NewProjectModal/></Menu.Item>
         <Menu.Item
           name='about'
           active={activeItem === 'about'}
