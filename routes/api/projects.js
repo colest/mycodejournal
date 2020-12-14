@@ -4,7 +4,7 @@ const router = express.Router();
 const Project = require('../../models/Project');
 
 // GET 
-// Get project and associated data
+// Get projects and associated high level data
 // Access limited to authenticated user's data
 
 router.get('/', (req, res) => {
@@ -12,6 +12,15 @@ router.get('/', (req, res) => {
            .sort({status: 'asc'})
            .then(projects => res.json(projects));
 });
+
+// GET
+// Get a specific project with increased detail
+
+router.get('/:id', (req, res) => {
+    
+    Project.findById(req.params.id)
+           .then(project => res.json(project));
+})
 
 // POST
 // Create a new project

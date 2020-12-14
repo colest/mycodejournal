@@ -1,7 +1,8 @@
-import { GET_PROJECTS, CREATE_PROJECT, PROJECTS_LOADING } from '../actions/types';
+import { GET_PROJECTS, GET_PROJECT_DETAILS, CREATE_PROJECT, PROJECTS_LOADING } from '../actions/types';
 
 const initialState = {
     projects: [],
+    activeProject: [],
     loading: false
 }
 
@@ -12,6 +13,13 @@ export default function(state = initialState, { type, payload }) {
                 ...state,
                 projects: payload,
                 loading: false
+            }
+        case GET_PROJECT_DETAILS:
+            console.log(payload._id)
+            console.log(state.projects)
+            return {
+                ...state,
+                activeProject: [payload]
             }
         case CREATE_PROJECT:
             return {

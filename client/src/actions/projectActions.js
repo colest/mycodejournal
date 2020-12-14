@@ -1,4 +1,4 @@
-import { GET_PROJECTS, CREATE_PROJECT, PROJECTS_LOADING } from './types';
+import { GET_PROJECTS, GET_PROJECT_DETAILS, CREATE_PROJECT, PROJECTS_LOADING } from './types';
 import axios from 'axios';
 
 export const getProjects = () => dispatch => {
@@ -12,9 +12,19 @@ export const getProjects = () => dispatch => {
             }));
 };
 
+export const getProjectDetails = projectId => dispatch => {
+    console.log('we are getting here')
+    console.log(projectId)
+    axios
+        .get(`/api/projects/${projectId.id}`)
+        .then(res =>
+            dispatch({
+                type: GET_PROJECT_DETAILS,
+                payload: res.data
+            }));
+}
 
 export const createProject = project => dispatch => {
-    console.log('we be actioning')
     axios
         .post('/api/projects', project)
         .then(res => dispatch({
