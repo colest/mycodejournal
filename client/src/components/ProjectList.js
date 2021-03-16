@@ -15,7 +15,7 @@ export default () => {
     
     return (
 
-        <Item.Group>
+        <Item.Group divided>
             {projects.map(project => (
             <Item key={project._id}>
                 <Item.Image size="small" src={project.thumbnail} />

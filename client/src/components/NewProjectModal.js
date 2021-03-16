@@ -12,14 +12,7 @@ export default () => {
         { key: 'o', text: 'On Hold', value: 'On Hold'},
         { key: 'r', text: 'Retired', value: 'Retired'},
     ]
-    // const [project, setProject] = useState({
-    //     title: '',
-    //     description: '',
-    //     thumbnail: '',
-    //     status: '',
-    //     repo: '',
-    //     deployment: ''
-    // })
+ 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [thumbnail, setThumbnail] = useState('');
@@ -48,7 +41,8 @@ export default () => {
         onOpen={() => setOpen(true)}
         onSubmit={e => handleSubmit(e)}
         open={open}
-        trigger={<Button color='black'>Create New Project</Button>}
+        trigger={<a>Create New Project</a>}
+        style={{cursor: 'pointer'}}
         >
             <Modal.Header>Create a New Project</Modal.Header>
             <Modal.Content>

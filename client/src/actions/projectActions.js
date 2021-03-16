@@ -13,10 +13,10 @@ export const getProjects = () => dispatch => {
 };
 
 export const getProjectDetails = projectId => dispatch => {
-    console.log('we are getting here')
+    console.log('Project Details Action Accessed')
     console.log(projectId)
     axios
-        .get(`/api/projects/${projectId.id}`)
+        .get(`/api/projects/${projectId}`)
         .then(res =>
             dispatch({
                 type: GET_PROJECT_DETAILS,

@@ -18,7 +18,7 @@ export default class MenuExampleInverted extends Component {
         <Menu.Item
           name='create new project'
 
-        ><NewProjectModal/></Menu.Item>
+        ><a style={{cursor: "pointer"}}><NewProjectModal/></a></Menu.Item>
         <Menu.Item
           name='about'
  

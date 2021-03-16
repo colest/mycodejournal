@@ -15,8 +15,9 @@ export default function(state = initialState, { type, payload }) {
                 loading: false
             }
         case GET_PROJECT_DETAILS:
-            console.log(payload._id)
-            console.log(state.projects)
+            console.log('reducer payload id', payload._id)
+            console.log(payload)
+            console.log('reducer state.activeProject ', state.activeProject)
             return {
                 ...state,
                 activeProject: [payload]
