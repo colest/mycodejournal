@@ -1,8 +1,9 @@
-import { GET_PROJECTS, GET_PROJECT_DETAILS, CREATE_PROJECT, PROJECTS_LOADING } from '../actions/types';
+import { GET_PROJECTS, GET_PROJECT_DETAILS, CREATE_PROJECT, UPDATE_PROJECT, PROJECTS_LOADING } from '../actions/types';
 
 const initialState = {
     projects: [],
-    activeProject: [],
+    activeProject: [{
+    }],
     loading: false
 }
 
@@ -20,7 +21,8 @@ export default function(state = initialState, { type, payload }) {
             console.log('reducer state.activeProject ', state.activeProject)
             return {
                 ...state,
-                activeProject: [payload]
+                activeProject: [payload],
+                loading: false
             }
         case CREATE_PROJECT:
             return {

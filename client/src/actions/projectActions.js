@@ -1,4 +1,4 @@
-import { GET_PROJECTS, GET_PROJECT_DETAILS, CREATE_PROJECT, PROJECTS_LOADING } from './types';
+import { GET_PROJECTS, GET_PROJECT_DETAILS, CREATE_PROJECT, UPDATE_PROJECT, PROJECTS_LOADING } from './types';
 import axios from 'axios';
 
 export const getProjects = () => dispatch => {
@@ -13,6 +13,7 @@ export const getProjects = () => dispatch => {
 };
 
 export const getProjectDetails = projectId => dispatch => {
+    dispatch(setProjectsLoading());
     console.log('Project Details Action Accessed')
     console.log(projectId)
     axios
@@ -31,6 +32,21 @@ export const createProject = project => dispatch => {
             type: CREATE_PROJECT,
             payload: res.data
         }));
+}
+
+export const updateProject = project => dispatch => {
+    axios
+        .put(`/api/projects/${project.id}`, project)
+        .then(res => {
+            
+            axios.get(`/api/projects/${project.id}`)
+            .then(res=> 
+                dispatch({
+                    type:GET_PROJECT_DETAILS,
+                    payload: res.data
+                })
+                )
+        })
 }
 
 export const setProjectsLoading = () => {

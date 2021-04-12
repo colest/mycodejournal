@@ -4,12 +4,8 @@ import { Link } from 'react-router-dom';
 import NewProjectModal from '../components/NewProjectModal';
 
 export default class MenuExampleInverted extends Component {
-  // state = { activeItem: 'Project List' }
-
-  // handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
+  
   render() {
-    // const { activeItem } = this.state
 
     return (
       <Menu inverted>
@@ -17,11 +13,9 @@ export default class MenuExampleInverted extends Component {
           <Link to='/'>Project List</Link></Menu.Item>
         <Menu.Item
           name='create new project'
-
         ><a style={{cursor: "pointer"}}><NewProjectModal/></a></Menu.Item>
         <Menu.Item
-          name='about'
- 
+          name='about' 
         />
 
         <Menu.Menu position='right'>

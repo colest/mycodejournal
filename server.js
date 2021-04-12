@@ -2,9 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const projects = require('./routes/api/projects');
-// const goals = require('./routes/api/goals');
-// const balance = require('./routes/api/balance');
-// const transactions = require('./routes/api/transactions');
+
 
 const app = express();
 //body parser now included in express
@@ -21,9 +19,7 @@ mongoose
 
 // Routes
 app.use('/api/projects', projects);
-// app.use('/api/goals', goals);
-// app.use('/api/balance', balance);
-// app.use('/api/transactions', transactions);
+
 
 // Serve static assets if in production
 if(process.env.NODE_ENV === 'production') {

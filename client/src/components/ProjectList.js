@@ -6,8 +6,10 @@ import { getProjects } from '../actions/projectActions';
 
 export default () => {
     const projects = useSelector(state => state.project.projects);
+    const test = useSelector(state => console.log('state', state))
     const dispatch = useDispatch();
     
+    console.log(projects)
     useEffect(() => {
         dispatch(getProjects());
     }, [dispatch])
